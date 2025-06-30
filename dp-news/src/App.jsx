@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import NavBar from "./components/Navbar";
 import Games from "./pages/Games";
 import Reviews from "./pages/Reviews";
 import HomePage from "./pages/Homepage";
@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="bg-black text-white font-sans">
-        <Navbar />
+        <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/News" element={<News />} />
