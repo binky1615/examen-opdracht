@@ -9,16 +9,16 @@ const NavBar = () => {
       </div>
       <ul className="flex space-x-12">
         <li>
-          <Link to="/News" className="text-purple-500 hover:text-purple-700"></Link>
+          <Link to="/News" className="text-purple-500 hover:text-purple-700">News</Link>
         </li>
         <li>
-          <Link to="/Games" className="text-purple-500 hover:text-purple-700"></Link>
+          <Link to="/Games" className="text-purple-500 hover:text-purple-700">Games</Link>
         </li>
         <li>
-          <Link to="/Reviews" className="text-purple-500 hover:text-purple-700"></Link>
+          <Link to="/Reviews" className="text-purple-500 hover:text-purple-700">Reviews</Link>
         </li>
         <li>
-          <Link to="/Contact" className="text-purple-500 hover:text-purple-700"></Link>
+          <Link to="/Contact" className="text-purple-500 hover:text-purple-700">Contact</Link>
         </li>
       </ul>
     </nav>
