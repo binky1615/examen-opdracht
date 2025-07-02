@@ -54,7 +54,7 @@ function SteamAPI({ gameIDs }) {
           <img
             src={`https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg`}
             alt={`Cover for game ${id}`}
-            className='size-1/3 object-cover mb-4 border-2 border-gray-400 rounded-lg hover:scale-110 transition-transform duration-300 ease-in-out'
+            className='size-1/3 object-cover mb-4 border-2 border-gray-400 rounded-lg'
             loading="lazy"
           />
           {errors[id] && (

@@ -1,10 +1,11 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import NavBar from "./components/Navbar";
-import Games from "./pages/Games";
-import Reviews from "./pages/Reviews";
 import HomePage from "./pages/Homepage";
 import News from "./pages/News";
+import Games from "./pages/Games";
+import GamesDetailPage from "./pages/GamesDetailPage";
+import Reviews from "./pages/Reviews";
 import Contact from "./pages/Contact";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/News" element={<News />} />
           <Route path="/Games" element={<Games />} />
+          <Route path="/Games/:id" element={<GamesDetailPage />} />
           <Route path="/Reviews" element={<Reviews />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Login" element={<Login />} />

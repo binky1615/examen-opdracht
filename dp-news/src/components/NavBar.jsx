@@ -19,11 +19,11 @@ const NavBar = () => {
         <Link to="/" className="text-gray-500 hover:text-gray-700">Home</Link>
       </div>
 
-      <ul className="flex space-x-12">
-        <li><Link to="/News" className="text-gray-500 hover:text-gray-700">News</Link></li>
-        <li><Link to="/Games" className="text-gray-500 hover:text-gray-700">Games</Link></li>
-        <li><Link to="/Reviews" className="text-gray-500 hover:text-gray-700">Reviews</Link></li>
-        <li><Link to="/Contact" className="text-gray-500 hover:text-gray-700">Contact</Link></li>
+      <ul className="flex space-x-12 mt-2">
+        <li><Link to="/News" className="bg-white text-gray-800 font-semibold px-6 py-3 rounded shadow-md hover:bg-gray-200 transition">News</Link></li>
+        <li><Link to="/Games" className="bg-white text-gray-800 font-semibold px-6 py-3 rounded shadow-md hover:bg-gray-200 transition">Games</Link></li>
+        <li><Link to="/Reviews" className="bg-white text-gray-800 font-semibold px-6 py-3 rounded shadow-md hover:bg-gray-200 transition">Reviews</Link></li>
+        <li><Link to="/Contact" className="bg-white text-gray-800 font-semibold px-6 py-3 rounded shadow-md hover:bg-gray-200 transition">Contact</Link></li>
 
         {/* Dropdown */}
         <li className="relative">

@@ -1,7 +1,11 @@
 import React from "react";
 import images from '../images.js';
+import { useNavigate } from "react-router-dom";
 
 function Games() {
+
+  const navigate = useNavigate();
+
   const gameIDs = [1888930, //The Last of Us Part 1
                    1623730, //Palworld
                    2201320, //Date Everything
@@ -35,8 +39,9 @@ function Games() {
             key={id}
             src={`https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg`}
             alt={`Cover for game ${id}`}
-            className="w-full max-w-[460px] h-[215px] object-cover rounded-md shadow-md"
+            className="w-full max-w-[460px] h-[215px] object-cover shadow-md border-2 border-gray-400 rounded-lg hover:scale-110 transition-transform duration-300 ease-in-out"
             loading="lazy"
+            onClick={() => navigate(`/games/${id}`)}
           />
         ))}
       </div>

@@ -1,0 +1,5 @@
+GameInfo = [
+    
+]
+
+export default GameInfo;
