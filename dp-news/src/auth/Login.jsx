@@ -25,7 +25,8 @@ function Login() {
     }
 
     if (email === storedEmail && password === storedPassword) {
-      navigate("/homepage");
+      navigate(-1);
+      localStorage.setItem("isLoggedIn", "true");
     } else {
       alert("Onjuiste gebruikersnaam of wachtwoord");
     }
@@ -33,18 +34,16 @@ function Login() {
 
   return ( 
     <>
-      <section className="bg-gray-400 h-screen flex flex-row justify-center items-center text-center ">
+      <section className="h-screen flex flex-row justify-center items-center text-center ">
         <section className="flex flex-col bg-gray-300 p-5 rounded-lg justify-start">
             <section className="flex flex-col mb-8">
                 <input
-                className=""
                 placeholder="Email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
-                className=""
                 placeholder="Password"
                 type="password"
                 value={password}
@@ -52,11 +51,11 @@ function Login() {
                 />
             </section>
             <section className="flex flex-col gap-2">
-                <button className="" onClick={handleLogin}>
+                <button className="text-gray-600 hover:text-gray-800" onClick={handleLogin}>
                 <p>LOGIN</p>
                 </button>
                 <Link to="/register">  
-                <p className="">Don't have an account? Sign up</p>
+                <p className="text-gray-600 hover:text-gray-800">Don't have an account? Sign up</p>
                 </Link>
             </section>
         </section>
