@@ -1,77 +1,68 @@
-import react, { useState, useEffect } from "react";
-import { useRouter } from 'expo-router';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Login() {
-  const router = useRouter();
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [storedEmail, setStoredEmail] = useState(null);
   const [storedPassword, setStoredPassword] = useState(null);
 
-  useEffect(() => {
-    getData();
-  }, []);
+  const navigate = useNavigate();
 
-  const getData = async () => {
-    try {
-      const savedEmail = await AsyncStorage.getItem("userEmail");
-      const savedPassword = await AsyncStorage.getItem("userPassword");
-      if (savedEmail && savedPassword) {
-        setStoredEmail(savedEmail);
-        setStoredPassword(savedPassword);
-      }
-    } catch (error) {
-      console.error("Error fetching data", error);
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("userEmail");
+    const savedPassword = localStorage.getItem("userPassword");
+    if (savedEmail && savedPassword) {
+      setStoredEmail(savedEmail);
+      setStoredPassword(savedPassword);
     }
-  };
+  }, []);
 
   const handleLogin = () => {
     if (!email || !password) {
-      Alert.alert("Error", "All fields are required.");
+      alert("All fields are required.");
       return;
     }
-    
+
     if (email === storedEmail && password === storedPassword) {
-      router.push("/screens/tabs/home");
+      navigate("/homepage");
     } else {
-      Alert.alert("Onjuiste gebruikersnaam of wachtwoord");
+      alert("Onjuiste gebruikersnaam of wachtwoord");
     }
   };
 
-  return (
-    <img
-      className=""
-      resizeMode="cover"
-      src="/PRINCESS.png"
-    >
-      <div className="">
-        <img
-          className=""
-          src="/PRINCESS.png"
-        />
-        <div className="">
-          <input
-            className=""
-            placeholder="Email"
-            keyboardType="email-address"
-            value={email}
-            onChangeText={setEmail}
-          />
-          <input
-            className=""
-            placeholder="Password"
-            secureTextEntry={true}
-            value={password}
-            onChangeText={setPassword}
-          />
-          <button className="" onClick={handleLogin}>
-            <p style={styles.buttonText}>LOGIN</p>
-          </button>
-          <button onClick={() => router.push("/screens/auth/register")}>  
-            <p className="">Don't have an account? Sign up</p>
-          </button>
-        </div>
-      </div>
-    </img>
+  return ( 
+    <>
+      <section className="bg-gray-400 h-screen flex flex-row justify-center items-center text-center ">
+        <section className="flex flex-col bg-gray-300 p-5 rounded-lg justify-start">
+            <section className="flex flex-col mb-8">
+                <input
+                className=""
+                placeholder="Email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                className=""
+                placeholder="Password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                />
+            </section>
+            <section className="flex flex-col gap-2">
+                <button className="" onClick={handleLogin}>
+                <p>LOGIN</p>
+                </button>
+                <Link to="/register">  
+                <p className="">Don't have an account? Sign up</p>
+                </Link>
+            </section>
+        </section>
+      </section>
+      </>
   );
 }
+
+export default Login;

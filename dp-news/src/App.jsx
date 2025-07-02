@@ -6,13 +6,14 @@ import Reviews from "./pages/Reviews";
 import HomePage from "./pages/Homepage";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
-
+import Login from "./auth/Login";
+import Register from "./auth/Register";
 
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="text-black font-sans">
+      <div className="bg-gray-900 text-gray-500 font-sans">
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -20,6 +21,8 @@ function App() {
           <Route path="/Games" element={<Games />} />
           <Route path="/Reviews" element={<Reviews />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Register" element={<Register />} />
         </Routes>
       </div>
     </BrowserRouter>
