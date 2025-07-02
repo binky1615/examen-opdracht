@@ -50,11 +50,11 @@ function SteamAPI({ gameIDs }) {
       {loading && <p>Loading news...</p>}
 
       {gameIDs.map(id => (
-        <div key={id} style={{ marginBottom: '2rem', border: '1px solid #ccc', padding: '1rem' }}>
+        <div key={id} style={{ marginBottom: '2rem', padding: '1rem' }}>
           <img
             src={`https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg`}
             alt={`Cover for game ${id}`}
-            style={{ width: '460px', height: '215px', objectFit: 'cover', marginBottom: '1rem' }}
+            className='size-1/3 object-cover mb-4 border-2 border-gray-400 rounded-lg hover:scale-110 transition-transform duration-300 ease-in-out'
             loading="lazy"
           />
           {errors[id] && (
