@@ -4,14 +4,18 @@ import { Link, Navigate } from 'react-router-dom';
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [profileImage, setProfileImage] = useState(null); // new state for profile image
 
-  // Check login state on page load or when localStorage changes
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn");
     setIsLoggedIn(loggedIn === "true");
-    
-  }, []);
 
+    // Load profile image from localStorage
+    const savedImage = localStorage.getItem("profileImage");
+    if (savedImage) {
+      setProfileImage(savedImage);
+    }
+  }, []);
 
   return (
     <nav className="bg-blue-900 text-white py-4 px-12 flex justify-between items-center">
@@ -32,36 +36,45 @@ const NavBar = () => {
             className="text-gray-500 focus:outline-none"
           >
             <section className='flex flex-row items-center gap-2 cursor-pointer'>
-            {!isLoggedIn &&
-            <img src="/account.png" alt="Account" className="size-2/6"/>
-            }
-            {isLoggedIn &&
-            <>
-            <img src="/account.png" alt="account" className="size-1/6"/>
-            <Link>{localStorage.getItem("userName")}</Link>
-            </>
-            }
+              {!isLoggedIn && (
+                <img 
+                  src={profileImage || "/account.png"} 
+                  alt="Account" 
+                  className="w-8 h-8 rounded-full object-cover" 
+                />
+              )}
+              {isLoggedIn && (
+                <>
+                  <img 
+                    src={profileImage || "/account.png"} 
+                    alt="Account" 
+                    className="w-8 h-8 rounded-full object-cover" 
+                  />
+                  <Link>{localStorage.getItem("userName")}</Link>
+                </>
+              )}
             </section>
           </button>
+
           {isOpen && (
             <ul className="absolute mt-2 bg-blue-900 text-gray-500 rounded shadow-lg w-32 z-10">
               {isLoggedIn ? (
                 <>
-                <li className="px-4 py-2 hover:bg-blue-950">
-                  <Link to="/Profile">PROFILE</Link>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      localStorage.removeItem("isLoggedIn");
-                      setIsLoggedIn(false);
-                      Navigate(-1)
-                    }}
-                    className="px-4 py-2 hover:bg-blue-950"
-                  >
-                    LOGOUT
-                  </button>
-                </li>
+                  <li className="px-4 py-2 hover:bg-blue-950">
+                    <Link to="/Profile">PROFILE</Link>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => {
+                        localStorage.removeItem("isLoggedIn");
+                        setIsLoggedIn(false);
+                        Navigate(-1);
+                      }}
+                      className="px-4 py-2 hover:bg-blue-950"
+                    >
+                      LOGOUT
+                    </button>
+                  </li>
                 </>
               ) : (
                 <>
@@ -82,3 +95,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
