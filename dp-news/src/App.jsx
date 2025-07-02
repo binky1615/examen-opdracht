@@ -12,7 +12,7 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-black text-white font-sans">
+      <div className="text-black font-sans">
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className=" bg-gray-800 text-white py-4 px-12 flex justify-between items-center">
+    <nav className=" bg-gray-300 text-white py-4 px-12 flex justify-between items-center">
       <div className="text-xl font-bold size-9">
         <Link to="/" className="text-purple-500 hover:text-purple-700">Home</Link>
       </div>
@@ -20,6 +22,29 @@ const NavBar = () => {
         <li>
           <Link to="/Contact" className="text-purple-500 hover:text-purple-700">Contact</Link>
         </li>
+        <ul>
+
+        {/* DROPDOWN */}
+        <li className="relative">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-purple-500 hover:text-purple-700 focus:outline-none"
+          >
+            <img src="/account.png" alt="" className='size-2/6' />
+          </button>
+          {isOpen && (
+            <ul className="absolute mt-2 bg-white text-purple-700 rounded shadow-lg w-32 z-10">
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link to="">LOGIN</Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link to="/Games/RPG">REGISTER</Link>
+              </li>
+
+            </ul>
+          )}
+        </li>
+        </ul>
       </ul>
     </nav>
   );
