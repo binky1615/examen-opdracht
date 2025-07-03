@@ -1,34 +1,46 @@
-// stuff wont save/code doesnt work
+// bullshit aint working
 // import React, { useState, useEffect } from 'react';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import GamesDetailPage from './GamesDetailPage';
 
 // function App() {
 //   const [favorites, setFavorites] = useState([]);
 
 //   useEffect(() => {
-//     const savedFavorites = localStorage.getItem('favorites');
-//     if (savedFavorites) {
-//       setFavorites(JSON.parse(savedFavorites));
+//     const stored = localStorage.getItem('favorites');
+//     if (stored) {
+//       setFavorites(JSON.parse(stored));
 //     }
 //   }, []);
 
-//   useEffect(() => {
-//     localStorage.setItem('favorites', JSON.stringify(favorites));
-//   }, [favorites]);
+//   const saveFavorites = (newFavs) => {
+//     localStorage.setItem('favorites', JSON.stringify(newFavs));
+//   };
 
 //   const toggleFavorite = (game) => {
-//     setFavorites(prev => {
-//       const exists = prev.find(g => g.id === game.id);
-//       if (exists) {
-//         return prev.filter(g => g.id !== game.id); // remove
-//       } else {
-//         return [...prev, game]; // add
-//       }
-//     });
+//     const isFav = favorites.some(f => f.id === game.id);
+//     const updated = isFav
+//       ? favorites.filter(f => f.id !== game.id)
+//       : [...favorites, game];
+
+//     setFavorites(updated);
+//     saveFavorites(updated);
 //   };
 
 //   return (
-//     <GamesDetailPage favorites={favorites} toggleFavorite={toggleFavorite} />
+//     <Router>
+//       <Routes>
+//         <Route
+//           path="/games/:id"
+//           element={
+//             <GamesDetailPage
+//               favorites={favorites}
+//               toggleFavorite={toggleFavorite}
+//             />
+//           }
+//         />
+//       </Routes>
+//     </Router>
 //   );
 // }
 
