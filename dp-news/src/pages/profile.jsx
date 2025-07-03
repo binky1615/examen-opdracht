@@ -13,7 +13,8 @@ function profile() {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const reader = new FileReader();
+        const reader = new FileReader();
+        window.location.reload();
 
       reader.onloadend = () => {
         setImage(reader.result);
