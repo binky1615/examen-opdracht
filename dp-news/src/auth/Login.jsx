@@ -25,8 +25,9 @@ function Login() {
     }
 
     if (email === storedEmail && password === storedPassword) {
-      navigate(-1);
+      navigate("/");
       localStorage.setItem("isLoggedIn", "true");
+      window.location.reload();
     } else {
       alert("Onjuiste gebruikersnaam of wachtwoord");
     }
