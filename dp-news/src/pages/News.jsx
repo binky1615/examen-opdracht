@@ -2,7 +2,7 @@ import React from "react";
 import SteamAPI from "../components/SteamAPI";
 
 function News() {
-  const gameIDs = [1888930, 1623730, 2201320];
+  const gameIDs = [3159330, 1623730, 2201320];
 
   return (
     <div>
