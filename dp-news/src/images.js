@@ -8,22 +8,26 @@ const images = [
   {
     id: 1,
     title: "Playstation",
-    image: playstation
+    image: playstation,
+    url: 'https://store.playstation.com/nl-nl/'
   },
   {
     id: 2,
     title: "Xbox",
-    image: xbox
+    image: xbox,
+    url: 'https://www.xbox.com/nl-NL/'
   },
     {
     id: 3,
     title: "switch",
-    image: switch12
+    image: switch12,
+    url: 'https://store.nintendo.nl/nl'
   },
   {
     id: 4,
     title: "pc",
-    image: pc
+    image: pc,
+    url: 'https://store.steampowered.com/'
   },
 ];
 

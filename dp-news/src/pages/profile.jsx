@@ -27,6 +27,7 @@ function profile() {
 
   return (
     <div className="flex flex-col items-center space-y-4">
+        <h1 className="scale-150">hello there {localStorage.getItem("userName")}</h1>
       <h2 className="text-xl font-semibold">Upload je profielfoto</h2>
 
       {image ? (

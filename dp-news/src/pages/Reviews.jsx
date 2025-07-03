@@ -7,7 +7,7 @@ function Reviews() {
 
   return (
     <section className="flex gap-5 h-screen justify-around mt-10">
-      <div className="relative w-180 h-110">
+      <div className="relative w-180 h-110 cursor-pointer">
         <img
           className="w-full h-full object-cover rounded-lg"
           src={reviewsData[0].image}
@@ -22,13 +22,13 @@ function Reviews() {
 
       <section className="flex flex-col gap-5">
         {reviewsData.slice(1).map((review) => (
-          <div key={review.id} className="relative w-90 h-60">
+          <div key={review.id} className="relative w-90 h-60 cursor-pointer">
             <img
               className="w-full h-full object-cover rounded-lg"
               src={review.image}
               alt={review.title}
             />
-            <h1 className="absolute inset-0 flex items-center justify-center text-white text-lg font-semibold rounded-lg"
+            <h1 className="absolute inset-0 flex items-center justify-center text-white text-lg font-semibold rounded-lg "
             onClick={() => navigate(`/Reviews/${review.id}`)}
 
             >

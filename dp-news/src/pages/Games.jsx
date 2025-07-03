@@ -1,6 +1,6 @@
 import React from "react";
 import images from '../images.js';
-import { useNavigate } from "react-router-dom";
+import { href, useNavigate } from "react-router-dom";
 
 function Games() {
 
@@ -27,10 +27,18 @@ function Games() {
   return (
     <section className="flex flex-col gap-4">
       <div className="flex justify-center">
-        <img className="w-full max-w-sm" src={images[0].image} alt={images[0].title} />
-        <img className="w-full max-w-sm" src={images[1].image} alt={images[1].title} />
-        <img className="w-full max-w-sm" src={images[2].image} alt={images[2].title} />
-        <img className="w-full max-w-sm" src={images[3].image} alt={images[3].title} />
+        <a href={images[0].url} target="_blank" rel="noopener noreferrer">
+          <img className="w-full max-w-sm" src={images[0].image} alt={images[0].title} />
+        </a>
+        <a href={images[1].url} target="_blank" rel="noopener noreferrer">
+          <img className="w-full max-w-sm" src={images[1].image} alt={images[1].title} />
+        </a>
+        <a href={images[2].url} target="_blank" rel="noopener noreferrer">
+          <img className="w-full max-w-sm" src={images[2].image} alt={images[2].title} />
+        </a>
+        <a href={images[3].url} target="_blank" rel="noopener noreferrer">
+          <img className="w-full max-w-sm" src={images[3].image} alt={images[3].title} />
+        </a>
       </div>
 
       <div className="flex flex-row gap-6 flex-wrap mb-12">
