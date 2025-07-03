@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [profileImage, setProfileImage] = useState(null); // new state for profile image
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn");
@@ -19,8 +21,8 @@ const NavBar = () => {
 
   return (
     <nav className="bg-blue-900 text-white py-4 px-12 flex justify-between items-center">
-      <div className="">
-        <img src="/ugly ah logo.png" alt="" onClick={() => Navigate("/")} className='size-1/4 rounded-xl'/>
+      <div >
+        <img src="/ugly ah logo.png" alt="" onClick={() => navigate("/")} className='size-1/4 rounded-xl'/>
       </div>
 
       <ul className="flex space-x-12 mt-2">
