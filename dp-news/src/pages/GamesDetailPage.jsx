@@ -7,18 +7,6 @@ function GamesDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-//favorites doesnt work
-// const isFavorite = favorites.some(fav => String(fav.id) === String(id));
-
-// const handleFavorite = () => {
-//   if (!game) return;
-
-//   const alreadyFav = favorites.some(f => String(f.id) === String(id));
-//   toggleFavorite(game);
-
-//   alert(`Je hebt game ${game.name} ${alreadyFav ? 'uit favorieten verwijderd' : 'als favoriet toegevoegd'}!`);
-// };
-
 
   useEffect(() => {
     async function fetchGame() {
@@ -26,6 +14,7 @@ function GamesDetailPage() {
         const res = await fetch(`https://thingproxy.freeboard.io/fetch/http://store.steampowered.com/api/appdetails?appids=${id}`);
         if (!res.ok) throw new Error("Game not found");
         const data = await res.json();
+        if (!data[id]?.data) throw new Error("Invalid game data");
         setGame(data[id].data);
       } catch (err) {
         setError(err.message);
@@ -41,18 +30,11 @@ function GamesDetailPage() {
   if (error) return <p>{error}</p>;
   if (!game) return <p>Game not found</p>;
 
+
   return (
     <div>
       <h1>{game.name}</h1>
       <img src={game.header_image} alt={game.name} />
- {/* save button doesnt work */}
-    {/* <button 
-    className="favorite-button" 
-    onClick={handleFavorite}
-    >
-     {favorites.some(fav => String(fav.id) === String(id)) ? '★' : '☆'}
-    </button> */}
-
       <p>{game.short_description}</p>
       {game.website && <a href={game.website}>Link</a>}
     </div>
