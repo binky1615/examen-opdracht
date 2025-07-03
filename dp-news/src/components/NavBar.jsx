@@ -38,7 +38,7 @@ const NavBar = () => {
             <section className='flex flex-row items-center gap-2 cursor-pointer'>
               {!isLoggedIn && (
                 <img 
-                  src={profileImage || "/account.png"} 
+                  src={"/account.png"} 
                   alt="Account" 
                   className="w-8 h-8 rounded-full object-cover" 
                 />

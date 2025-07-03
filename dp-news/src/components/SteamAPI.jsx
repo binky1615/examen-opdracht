@@ -50,7 +50,7 @@ function SteamAPI({ gameIDs }) {
       {loading && <p>Loading news...</p>}
 
       {gameIDs.map(id => (
-        <div key={id} style={{ marginBottom: '2rem', padding: '1rem' }}>
+        <div key={id} style={{ marginBottom: '2rem', padding: '1rem' }} className='flex flex-col items-center'>
           <img
             src={`https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg`}
             alt={`Cover for game ${id}`}
@@ -65,7 +65,7 @@ function SteamAPI({ gameIDs }) {
             <div>
               {gamesNews[id] && gamesNews[id].length > 0 ? (
                 gamesNews[id].map(news => (
-                  <div key={news.gid} style={{ marginBottom: '1rem' }}>
+                  <div key={news.gid} style={{ marginBottom: '1rem' }} className='border-2 border-gray-400 rounded-lg'>
                     <h3>{news.title}</h3>
                     <p>{news.contents}</p>
                     <a href={news.url} target="_blank" rel="noopener noreferrer">

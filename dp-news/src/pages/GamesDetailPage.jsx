@@ -7,6 +7,19 @@ function GamesDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+//favorites doesnt work
+// const isFavorite = favorites.some(fav => String(fav.id) === String(id));
+
+// const handleFavorite = () => {
+//   if (!game) return;
+
+//   const alreadyFav = favorites.some(f => String(f.id) === String(id));
+//   toggleFavorite(game);
+
+//   alert(`Je hebt game ${game.name} ${alreadyFav ? 'uit favorieten verwijderd' : 'als favoriet toegevoegd'}!`);
+// };
+
+
   useEffect(() => {
     async function fetchGame() {
       try {
@@ -32,8 +45,16 @@ function GamesDetailPage() {
     <div>
       <h1>{game.name}</h1>
       <img src={game.header_image} alt={game.name} />
+ {/* save button doesnt work */}
+    {/* <button 
+    className="favorite-button" 
+    onClick={handleFavorite}
+    >
+     {favorites.some(fav => String(fav.id) === String(id)) ? '★' : '☆'}
+    </button> */}
+
       <p>{game.short_description}</p>
-      <a href={game.website}>Link</a>
+      {game.website && <a href={game.website}>Link</a>}
     </div>
   );
 }
