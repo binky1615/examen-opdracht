@@ -18,7 +18,7 @@ const reviewsData = [
     writer: "Valentijn",
     image: stray,
     text: "Stray is niet zomaar een game, het is de droom van elke kattenliefhebber die ooit heeft gedacht: “Wat als ik nu eens écht een kat was?” Je speelt een schattige, maar vooral nieuwsgierige straatkat die verdwaald raakt in een futuristische stad vol neonlichten, robotbewoners en mysterieuze geheimen.\n\nDe controls voelen verrassend natuurlijk: rennen, springen, miauwen en vooral elke doos en vuilnisbak met volle overtuiging inspecteren. Soms voelt het alsof de ontwikkelaars een checklist hadden: “Zorg dat je kat zo vaak mogelijk omvalt, tegen dingen aanloopt en achter laserlichtjes aanjaagt.” En geloof me, dat doen we met plezier.\n\nWat Stray echt bijzonder maakt, is de sfeer: donkere steegjes afgewisseld met glimmende technologie, een verhaal dat langzaam ontvouwt en die charmante robotmaatjes die je helpen met puzzels. Oh, en vergeet niet: als kat kun je overal op springen, soms op plaatsen waar je als mens alleen maar zou struikelen.\n\nKortom, Stray is een heerlijk kat-voor-één-dag avontuur, vol humor, avontuur én kattigheid. Miauw-tastisch!",
-    rating: "8/10"
+    rating: "Meow/10"
   },
   {
     id: 3,

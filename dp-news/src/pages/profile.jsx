@@ -59,12 +59,13 @@ function Profile() {
       <button
         className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded"
         onClick={() => {
-          localStorage.clear();
-          window.location.reload();
-          
+          if (window.confirm("Are you sure you want to delete everything?")) {
+            localStorage.clear();
+            window.location.reload();
+          }
         }}
       >
-        Go Fuck Yourself
+        Destroy it all
       </button>
       <div className="flex flex-col gap-2 mt-4 justify-center items-center">
         <h2 className="text-xl font-semibold">Favoriete games</h2>

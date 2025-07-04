@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function GamesDetailPage() {
   const { id } = useParams();
@@ -7,6 +7,8 @@ function GamesDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [favorite, setFavorite] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchGame() {
@@ -76,7 +78,10 @@ const handleFavorite = () => {
                     <iframe src={`https://store.steampowered.com/widget/${id}/`} frameBorder="0" className='h-2/3 w-1/2'></iframe>
                 </div>
             </div>
-            {game.website && <a href={game.website}>Link</a>}
+            <div className='flex flex-row justify-center items-center gap-6 '>
+                {game.website && <a href={game.website} className='bg-blue-900 rounded-lg p-2 text-white hover:bg-blue-950 transition pl-6 pr-6'>Link</a>}
+                <button className='bg-blue-900 rounded-lg p-2 text-white hover:bg-blue-950 transition pl-6 pr-6' onClick={() => navigate(-1)}>Go Back</button>
+            </div>
             </div>
         </section>
     </section>

@@ -1,5 +1,0 @@
-GameInfo = [
-    
-]
-
-export default GameInfo;
