@@ -1,35 +1,40 @@
 import React, { useState, useEffect } from "react";
 
-function profile() {
+function Profile() {
   const [image, setImage] = useState(null);
+  const [favorites, setFavorites] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
     const savedImage = localStorage.getItem("profileImage");
     if (savedImage) {
       setImage(savedImage);
+    }
+
+    const savedFavorites = localStorage.getItem("favorites");
+    if (savedFavorites) {
+      setFavorites(JSON.parse(savedFavorites));
     }
   }, []);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-        const reader = new FileReader();
-        window.location.reload();
+      const reader = new FileReader();
+      window.location.reload();
 
       reader.onloadend = () => {
         setImage(reader.result);
         localStorage.setItem("profileImage", reader.result);
       };
 
-      reader.readAsDataURL(file); 
+      reader.readAsDataURL(file);
     }
   };
 
   return (
-    <div className="flex flex-col items-center space-y-4">
-        <h1 className="scale-150">hello there {localStorage.getItem("userName")}</h1>
+    <div className="h-screen flex flex-col items-center space-y-4">
+      <h1 className="scale-150">hello there {localStorage.getItem("userName")}</h1>
       <h2 className="text-xl font-semibold">Upload je profielfoto</h2>
-
       {image ? (
         <img
           src={image}
@@ -48,8 +53,26 @@ function profile() {
         onChange={handleImageChange}
         className="cursor-pointer"
       />
+      <button
+        className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded"
+        onClick={() => {
+          localStorage.clear();
+          window.location.reload();
+          
+        }}
+      >
+        Go Fuck Yourself
+      </button>
+      <div className="flex flex-col gap-2 mt-4 justify-center items-center">
+        <h2 className="text-xl font-semibold">Favoriete games</h2>
+        <div className="space-y-2">
+            {favorites.map((game, index) => (
+            <img key={index} src={game.header_image} alt={`Game ${index}`} />
+            ))}
+        </div>
+      </div>
     </div>
   );
 }
 
-export default profile;
+export default Profile;
